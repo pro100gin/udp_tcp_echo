@@ -17,7 +17,7 @@
 #include <arpa/inet.h>
 
 #define SERVER_IP INADDR_LOOPBACK
-#define SERVER_PORT 7777
+#define SERVER_PORT 7778
 
 #define MAX_MSG_SIZE 256
 
