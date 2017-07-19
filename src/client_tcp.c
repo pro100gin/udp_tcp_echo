@@ -14,7 +14,7 @@ int main() {
 
 	sd_cln = socket(AF_INET, SOCK_STREAM, 0);
 	if (sd_cln == -1) {
-		perror("Client: socket(client)");
+		perror("#TCP# Client: socket(client)");
 
 		close(sd_cln);
 		exit(EXIT_FAILURE);
@@ -26,7 +26,7 @@ int main() {
 
 	rtn = connect(sd_cln, (struct sockaddr *)&srv_addr, sock_size);
 	if (rtn == -1) {
-		perror("Client: connect(server)");
+		perror("#TCP# Client: connect(server)");
 
 		close(sd_cln);
 		exit(EXIT_FAILURE);
@@ -39,9 +39,9 @@ int main() {
 	while(1) {
 		memset(msg, 0, MAX_MSG_SIZE);
 
-		printf("Input you message: ");
+		printf("#TCP# Input you message: ");
 		if (fgets(msg, MAX_MSG_SIZE, stdin) == NULL) {
-			perror("Client: fgets(msg)");
+			perror("#TCP# Client: fgets(msg)");
 
 			close(sd_cln);
 			exit(EXIT_FAILURE);
@@ -57,10 +57,10 @@ int main() {
 			exit(EXIT_FAILURE);
 		}
 
-		printf("Client: send message to server: '%s' (%d bytes)\n", msg, (int)bts);
+		printf("#TCP# Client: send message to server: '%s' (%d bytes)\n", msg, (int)bts);
 
 		if(!strcmp(msg, "exit")){
-			printf("Client: main thread bye\n");
+			printf("#TCP# Client: main thread bye\n");
 			exit(EXIT_SUCCESS);
 		}
 
@@ -74,7 +74,7 @@ int main() {
 			exit(EXIT_FAILURE);
 		}
 
-		printf("Client: receive message from server: '%s' (%d bytes)\n\n", msg, (int)bts);
+		printf("#TCP# Client: receive message from server: '%s' (%d bytes)\n\n", msg, (int)bts);
 	}
 
 	exit(EXIT_SUCCESS);

@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <sys/epoll.h>
+#include <sys/poll.h>
 
 #include <arpa/inet.h>
 #include <time.h>
@@ -23,7 +24,8 @@
 #include <sys/stat.h>
 #include <sys/msg.h>
 #include <netinet/in.h>
-
+#include <time.h>
+#include <sys/select.h>
 
 #define SERVER_IP "192.168.2.83"
 #define SERVER_PORT 7778
